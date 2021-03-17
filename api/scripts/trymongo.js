@@ -1,6 +1,7 @@
+require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-const url = 'mongodb+srv://jyoti:jyoti@cluster0.ehdqg.mongodb.net/issuetracker';
+const url = process.env.DB_URL || 'mongodb+srv://jyoti:jyoti@cluster0.ehdqg.mongodb.net/issuetracker';
 
 
 // Atlas URL  - replace UUU with user, PPP with password, XXX with hostname
@@ -17,7 +18,7 @@ function testWithCallbacks(callback) {
       callback(err);
       return;
     }
-    console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB URL', url);
 
     const db = client.db();
     const collection = db.collection('employees');
@@ -50,7 +51,7 @@ async function testWithAsync() {
   const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
   try {
     await client.connect();
-    console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB URL', url);
     const db = client.db();
     const collection = db.collection('employees');
 
