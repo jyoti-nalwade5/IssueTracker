@@ -151,7 +151,7 @@ class IssueList extends React.Component {
       }
     }`;
 
-    const data = await graphQLFetch(query, { issue });
+    const data = await graphQLFetch(query, { product });
     if (data) {
       this.loadData();
     }
