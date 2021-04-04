@@ -1,4 +1,6 @@
+/* eslint linebreak-style: ["error", "windows"] */
 /* eslint "no-alert": "off" */
+
 const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 
 function jsonDateReviver(key, value) {
