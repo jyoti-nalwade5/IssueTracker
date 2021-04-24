@@ -33,7 +33,7 @@ if (apiProxyTarget) {
 }
 
 const UI_API_ENDPOINT = process.env.UI_API_ENDPOINT
-  || 'http://localhost:3000/graphql';
+  || 'http://localhost:3001/graphql';
 const env = { UI_API_ENDPOINT };
 
 app.get('/env.js', (req, res) => {
@@ -44,7 +44,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve('public/index.html'));
 });
 
-const port = process.env.UI_SERVER_PORT || 8000;
+const port = process.env.UI_SERVER_PORT || 8001;
 
 app.listen(port, () => {
   console.log(`UI started on port ${port}`);
